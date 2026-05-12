@@ -1,5 +1,6 @@
 
 import { createServer, IncomingMessage, Server } from "http";
+import {  mainRoute } from "./routers/mainRoute";
 
 
 // const server:Server = createServer((req:IncomingMessage, res) => {
@@ -8,19 +9,9 @@ import { createServer, IncomingMessage, Server } from "http";
 
 const server: Server = createServer((req: IncomingMessage, res) => {
     
-    const url = req.url ;
-    const method = req.method ;
-
-    if (url === "/") {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("Hello, World!");
-    }else if (url === "/about") {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("This is the about page.");
-    } else {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("Page not found.");
-    }
+    return mainRoute(req, res)
+    
+    
 });
 
 server.listen(3000, () => {
