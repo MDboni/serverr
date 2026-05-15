@@ -16,6 +16,8 @@ export const mainRoute = (req: IncomingMessage, res:ServerResponse) => {
         return homeRoute(req, res);
     }
 
+    // abc opasd
+    
     if (url === "/about") {
         return aboutRoutes(req, res);
     }
